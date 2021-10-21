@@ -57,7 +57,7 @@ public class BaseNIntegerUnsignedTest {
     public void before(){
         u0 = new BaseNIntegerUnsigned(encode(v0, base11), base11);
         u1 = new BaseNIntegerUnsigned(DIGIT_ZERO + encode(v1, base11), base11);
-        u2 = new BaseNIntegerUnsigned(DIGIT_ZERO + (DIGIT_ZERO + encode(v2, base11)), base11);
+        u2 = new BaseNIntegerUnsigned(DIGIT_ZERO + (DIGIT_ZERO + encode(v2, base11)), base11); //"AAB(11)"
         u3 = new BaseNIntegerUnsigned(encode(v3, base11), base11);
 
         u4 = new BaseNIntegerUnsigned(encode(v4, base5), base5);
@@ -80,6 +80,10 @@ public class BaseNIntegerUnsignedTest {
         assertEquals(v4, u4.toInteger());
         assertEquals(v5, u5.toInteger());
         assertEquals(v8, u8.toInteger());
+
+        // If flaged, u1 ("AA") was not equal to "A". Technically ignorable but the design of the test suggest that
+        // you should run magnitude through WithoutLeadingZeros() in the constructor before assigning it
+        assertEquals(u1Magnitude, u1.getMagnitude());
     }
 
     @Test
@@ -104,6 +108,8 @@ public class BaseNIntegerUnsignedTest {
         //Testing for edges of base 26
         assertTrue(BaseNIntegerUnsigned.isValidMagnitude(u8Magnitude, base26));
         assertFalse(BaseNIntegerUnsigned.isValidMagnitude(u8Magnitude, base25));
+
+
     }
 
     @Test

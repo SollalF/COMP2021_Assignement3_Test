@@ -13,9 +13,11 @@ public class BaseNIntegerUnsignedTest {
     int v3 = 160;
     int v4 = 95;
     int v5 = 32;
+    int v6 = 999;
 
     int base1 = 11;
     int base2 = 5;
+    int base10 = 10;
 
     BaseNIntegerUnsigned u0;
     BaseNIntegerUnsigned u1;
@@ -23,6 +25,7 @@ public class BaseNIntegerUnsignedTest {
     BaseNIntegerUnsigned u3;
     BaseNIntegerUnsigned u4;
     BaseNIntegerUnsigned u5;
+    BaseNIntegerUnsigned u6;
 
     String u1Magnitude = "A";
     String u2Magnitude = "B";
@@ -45,6 +48,8 @@ public class BaseNIntegerUnsignedTest {
 
         u4 = new BaseNIntegerUnsigned(encode(v4, base2), base2);
         u5 = new BaseNIntegerUnsigned(encode(v5, base2), base2);
+
+        u6 = new BaseNIntegerUnsigned(encode(v6, base10), base10);
     }
 
     @Test
@@ -106,6 +111,7 @@ public class BaseNIntegerUnsignedTest {
     public void testAdd01(){
         assertEquals(v2 + v3, u2.add(u3).toInteger());
         assertEquals(v1 + v2, u1.add(u2).toInteger());
+        assertEquals( v6 + v6, u6.add(u6).toInteger());
     }
 
     @Test

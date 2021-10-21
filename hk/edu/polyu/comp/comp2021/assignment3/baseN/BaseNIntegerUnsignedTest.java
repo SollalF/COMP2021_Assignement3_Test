@@ -53,8 +53,6 @@ public class BaseNIntegerUnsignedTest {
     String u4String = "DEA(5)";
     String u5String = "BBC(5)";
 
-    //This is my contribution, I'm Yoyo
-
     @Before
     public void before(){
         u0 = new BaseNIntegerUnsigned(encode(v0, base11), base11);

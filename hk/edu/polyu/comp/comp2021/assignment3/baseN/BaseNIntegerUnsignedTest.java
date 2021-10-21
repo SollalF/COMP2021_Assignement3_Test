@@ -135,7 +135,6 @@ public class BaseNIntegerUnsignedTest {
         assertTrue(u2.compare(u1) > 0);
         assertTrue(u0.compare(u1) == 0);
         assertTrue(u8.compare(u8) == 0);
-        System.out.println("Testign equality of u2 with itself: " + u2.toString());
         assertTrue(u2.compare(u2) == 0);
         assertTrue(u1.compare(u1) == 0);
         assertTrue(u10.compare(u10) == 0);
